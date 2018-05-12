@@ -1,0 +1,29 @@
+﻿@model IEnumerable<CookantsEntity.ViewModel.SecurityUserWithPoint>
+<h3 class="sidebar-widget-title">Chef's</h3>
+<ul class="item-list">
+
+    @foreach (var item in Model)
+    {
+        <li>
+            <div class="media">
+                <div class="media-left">
+                    <img style="max-height:80px;" class="item-photo img-circle" src="@item.securityUser.RootUrl" alt="">
+                </div>
+                <div class="media-body">
+                    <h3 class="chef-name"><a href="@Url.Action("HomeChefProfile", "Home", new { id = item.securityUser.Id, date= DateTime.Today })">@Html.DisplayFor(model => item.securityUser.FullName)</a></h3>
+                    <ul class="rating">
+                        @for (int i = 0; i < item.userPoints; i++)
+                        {
+
+                            <li><i class="mdi mdi-star"></i></li>
+
+                        }
+                       
+                    </ul>
+                </div>
+            </div>
+        </li>
+    }
+
+</ul>
+
