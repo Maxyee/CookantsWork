@@ -56,3 +56,23 @@
             return new List<object>(items);
         }
         /*Api Method for pagination of schedluemenu with pageno and mealid ends here*/
+
+        /*Api Method for Pagination of schedluemenu with pageno,data,mealid starts here*/
+        public List<object> SchedleMenuPagenoDateMealid(int pageno, string date, int mealid)
+        {
+            var datetime = Convert.ToDateTime(date);
+            int pagevaluesize = 10;
+
+            var menuScheduleAlldata = _menuScheduleRepository.GetAll().ToList();
+            int count = menuScheduleAlldata.Count();
+
+            int totalpage = (int)Math.Ceiling(count / (double)pagevaluesize);
+            var items = menuScheduleAlldata.Skip((pageno - 1) * pagevaluesize).Take(pagevaluesize).Where(x => x.MealId == mealid && x.Date == datetime).ToList();
+
+
+            var previousPage = pageno > 1 ? "Yes" : "No";
+            var nextPage = pageno < totalpage ? "Yes" : "No";
+
+            return new List<object>(items);
+        }
+        /*Api Method for Pagination of schedluemenu with pageno,data,mealid ends here*/
