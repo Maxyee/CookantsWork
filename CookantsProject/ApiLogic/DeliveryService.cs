@@ -96,48 +96,27 @@ namespace CookantsService.Services
         //confirmDelivery Method/LinQ created by Julhas
         public List<object> ConfirmDelivery(int id)
         {
-            //var ordertabledata = _orderRepository.GetAll().FirstOrDefault(x => x.Id == id);
-            //var identify = ordertabledata.FirstOrDefault(x => x.Id == id);
-            //var finddata = _orderRepository.FindById(x => x.Id == id);
-            //bool value = finddata.PaymentStatus; 
-            //var ordertabledata = _orderRepository.GetAll().FirstOrDefault(x => x.Id == id);
-            //var identify = (from m in _orderRepository.GetAll().ToList()
-            //                where m.Id == id
-            //                select m);
-            //var address = _addressRepository.GetAll().ToList();
+            var ordertabledata = _orderRepository.GetAll().FirstOrDefault(x => x.Id == id);
 
-            //var data = _orderRepository.FindById(u => u.Id == id);
-            //var alldata = _orderRepository.GetAll().ToList();
-            //if(data.PaymentStatus)
-            //{
-            //    return new List<object>(alldata);
-            //}
-            //return new List<object>(address);
+            if(ordertabledata.PaymentStatus)
+            {
+                List<object> items = new List<object>
+                {
+                   new { orderId=ordertabledata.Id, Payment="Paid", Commnets = "Delivery Confirmed" }
+                };
+                return items;
+            }
+            else
+            {
+                List<object> items = new List<object>
+                {
+                   new { orderId=ordertabledata.Id, Payment="Due", Commnets = "Delivery Not Confirmed" }
+                };
+                return items;
+            }    
 
-            //var OrderData = _orderRepository.GetAll().ToList();
-            //var Identify = OrderData.FirstOrDefault(z => z.Id == id && z.PaymentStatus == false);
 
-            //bool data = Convert.ToBoolean(identify); 
-
-            //if (Identify != null)
-            //{
-            //    List<object> items = new List<object>
-            //    {
-            //       new { orderId=Identify.Id, Payment="Due", Commnets = "Delivery Not Confirmed" }
-            //    };
-
-            //    return items;
-            //}
-            //else
-            //{
-            //    List<object> items = new List<object>
-            //    {
-            //       new { orderId=Identify.Id, Payment="Paid", Commnets = "Delivery Confirmed" }
-            //    };
-
-            //    return items;
-            //}
-            return null;
+            
         }
     }
     #endregion
