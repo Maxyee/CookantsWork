@@ -1,0 +1,247 @@
+﻿@model CookantsEntity.Model.SecurityUser
+<script src="~/Areas/AdminBlock/Content/js/jquery-1.8.2.min.js"></script>
+<script>
+            $(function () {
+
+
+                $('#HomeAddressArea').change(function () {
+                    var selectedOptionId = $(this).val();
+                    console.log(selectedOptionId);
+                    $("#Stack").val(selectedOptionId);
+                    $('#HomeAddressSubZone').empty();
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/Home/GetSubZoneByBusinessAreaId",
+                        datatype: "Json",
+                        data: { BusinessAreaId: selectedOptionId },
+                        success: function (data) {
+
+                            $.each(data, function (Create, value) {
+                                $('#HomeAddressSubZone').append('<option value="' + value.Id + '">' + value.Name + '</option>');
+                            });
+                        }
+                    });
+                });
+
+            });
+            $("#HomeAddressArea").change(function () {
+                var selectedOptionId = $(this).val();
+                alert(selectedOptionId);
+                $("#Stack").val(selectedOptionId); //Set the selected value to textbox
+             });
+</script>
+<script>
+            $(function () {
+
+
+                $('#OfficeAddressArea').change(function () {
+                    var selectedOptionId = $(this).val();
+                    console.log(selectedOptionId);
+                    $("#Stack").val(selectedOptionId);
+                    $('#OfficeAddressSubZone').empty();
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/Home/GetSubZoneByBusinessAreaId",
+                        datatype: "Json",
+                        data: { BusinessAreaId: selectedOptionId },
+                        success: function (data) {
+
+                            $.each(data, function (Create, value) {
+                                $('#OfficeAddressSubZone').append('<option value="' + value.Id + '">' + value.Name + '</option>');
+                            });
+                        }
+                    });
+                });
+
+            });
+            $("#OfficeAddressArea").change(function () {
+                var selectedOptionId = $(this).val();
+                alert(selectedOptionId);
+                $("#Stack").val(selectedOptionId); //Set the selected value to textbox
+             });
+</script>
+<script>
+            $(function () {
+
+
+                $('#OtherAddressArea').change(function () {
+                    var selectedOptionId = $(this).val();
+                    console.log(selectedOptionId);
+                    $("#Stack").val(selectedOptionId);
+                    $('#OtherAddressSubZone').empty();
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/Home/GetSubZoneByBusinessAreaId",
+                        datatype: "Json",
+                        data: { BusinessAreaId: selectedOptionId },
+                        success: function (data) {
+
+                            $.each(data, function (Create, value) {
+                                $('#OtherAddressSubZone').append('<option value="' + value.Id + '">' + value.Name + '</option>');
+                            });
+                        }
+                    });
+                });
+
+            });
+            $("#OtherAddressArea").change(function () {
+                var selectedOptionId = $(this).val();
+                alert(selectedOptionId);
+                $("#Stack").val(selectedOptionId); //Set the selected value to textbox
+             });
+</script>
+<div class="row login-form">
+    <div class="col-sm-12">
+        <h3 style="text-align:center;font-weight:bold;">Where You want</h3>
+        <h3 style="text-align:center;font-weight:bold;">Your Food To Be Delivered?</h3>
+
+        <div class="form-group text-center">
+      
+
+            <div class="radio radio-primary radio-inline">
+                <label>
+                    <input name="address" id="red" value="@Model.HomeAddressId" type="radio">
+                    Home
+                </label>
+            </div>
+            <div class="radio radio-primary radio-inline">
+                <label>
+                    <input name="address" id="green" value="@Model.OfficeAddressId" type="radio">
+                    Office
+                </label>
+            </div>
+            <div class="radio radio-primary radio-inline">
+                <label>
+                    <input name="address" id="blue" value="@Model.OtherAddressId" type="radio">
+                    Other
+                </label>
+
+            </div>
+          
+          
+        </div>
+
+        <div class="red box">
+            @using (Html.BeginForm("Index", "Food", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <input name="HomeAddressId" type="hidden" value="@Html.DisplayFor(model=>model.HomeAddressId)" />
+                <input name="date" type="hidden" value="@DateTime.Today" />
+                <input name="Address" type="hidden" value="Home" />
+
+                    <div class="form">
+                        <div class="form-group">
+                            @Html.DropDownList("HomeAddressArea", null, htmlAttributes: new { @class = "city form-control", @style = "width: 100%" })
+                        </div>
+                        <div class="form-group">
+                            @Html.DropDownList("HomeAddressSubZone", null, htmlAttributes: new { @class = "city form-control", @style = "width: 100%" })
+                        </div>
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.HomeAddress.Description, new { htmlAttributes = new { @placeholder = "Address Description" }, @type = "text" })
+                        </div>
+                        <h3 style="text-align:center;font-weight:bold;">What You Want To Eat?</h3>
+                        <div class="form-group">
+                            @Html.DropDownList("MealTimes", new SelectList(ViewBag.MealTimes, "Value", "Text"), htmlAttributes: new { @class = "food form-control", @style = "width: 100%" })
+                        </div>
+                        <div class="form-group text-center">
+                            <input type="submit" value="Submit" class="btn btn-raised btn-warning">
+                        </div>
+                    </div>
+            }
+        </div>
+        <div class="green box">
+            @using (Html.BeginForm("Index", "Food", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <input name="OfficeAddressId" type="hidden" value="@Html.DisplayFor(model=>model.OfficeAddressId)" />
+                <input name="date" type="hidden" value="@DateTime.Today" />
+                <input name="Address" type="hidden" value="Office" />
+
+                <div class="form">
+                    <div class="form-group">
+                        @Html.DropDownList("OfficeAddressArea", null, htmlAttributes: new { @class = "city form-control", @style = "width: 100%" })
+                    </div>
+                    <div class="form-group">
+                        @Html.DropDownList("OfficeAddressSubZone", null, htmlAttributes: new { @class = "city form-control", @style = "width: 100%" })
+                    </div>
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.OfficeAddress.Description, new { htmlAttributes = new { @placeholder = "Address Description" }, @type = "text" })
+                    </div>
+                    <h3 style="text-align:center;font-weight:bold;">What You Want To Eat?</h3>
+                    <div class="form-group">
+                        @Html.DropDownList("MealTimes", new SelectList(ViewBag.MealTimes, "Value", "Text"), htmlAttributes: new { @class = "food form-control", @style = "width: 100%" })
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="submit" value="Submit" class="btn btn-raised btn-warning">
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="blue box">
+            @using (Html.BeginForm("Index", "Food", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <input name="OtherAddressId" type="hidden" value="@Html.DisplayFor(model=>model.OtherAddressId)" />
+                <input name="date" type="hidden" value="@DateTime.Today" />
+                <input name="Address" type="hidden" value="Other" />
+                <div class="form">
+                    <div class="form-group">
+                        @Html.DropDownList("OtherAddressArea", null, htmlAttributes: new { @class = "city form-control", @style = "width: 100%" })
+                    </div>
+                    <div class="form-group">
+                        @Html.DropDownList("OtherAddressSubZone", null, htmlAttributes: new { @class = "city form-control", @style = "width: 100%" })
+                    </div>
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.OtherAddress.Description, new { htmlAttributes = new { @placeholder = "Address Description" }, @type = "text" })
+                    </div>
+                    <h3 style="text-align:center;font-weight:bold;">What You Want To Eat?</h3>
+                    <div class="form-group">
+                        @Html.DropDownList("MealTimes", new SelectList(ViewBag.MealTimes, "Value", "Text"), htmlAttributes: new { @class = "food form-control", @style = "width: 100%" })
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="submit" value="Submit" class="btn btn-raised btn-warning">
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+<div class="modal-footer">
+</div>
+<style>
+    .form {
+        position: relative;
+        z-index: 1;
+        background: #FFFFFF;
+        max-width: 300px;
+        margin: 0 auto 10px;
+        padding: 10px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        text-align: center;
+    }
+
+
+        .form input {
+            outline: 0;
+            background: #f2f2f2;
+            width: 100%;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 15px;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+</style>
+
+

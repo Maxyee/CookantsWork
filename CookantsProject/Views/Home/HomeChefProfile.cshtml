@@ -1,0 +1,279 @@
+﻿@model CookantsEntity.ViewModel.MenuSchedul
+@using CookantsEntity.ViewModel
+
+@{
+    ViewBag.Title = "HomeChefProfile";
+}
+
+<div class="massage-bar text-center">
+    <div class="container">
+        <p>@Html.DisplayFor(model => model.user.FirstName)'s Kitchen can deliver to you at <a class="btn btn-primary btn-raised btn-sm">@ViewBag.Address</a></p>
+    </div>
+</div>
+<section class="chef-cover">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="media chef-profile">
+                    <div class="media-left chef-profile-pic">
+                        <img src="@Html.DisplayFor(model => model.user.RootUrl)" alt="@Html.DisplayFor(model => model.user.FullName)">
+                    </div>
+                    <div class="media-body chef-profile-title">
+                        <h2>@Html.DisplayFor(model => model.user.FullName)</h2>
+                        <ul class="rating">
+                            @for (int i = 0; i < Model.userPoint; i++)
+                            {
+                                <li><a href=""><i class="mdi mdi-star"></i></a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img src="~/Content/assets/images/main_banner.jpg" alt="">
+</section>
+<!-- /.Main banner -->
+<div class="chef-profile-menu">
+    <div class="container">
+        <ul class="nav nav-tabs" style="margin-bottom: 15px;">
+            <li class="active"><a href="#mealOffered" data-toggle="tab" aria-expanded="true">Meal Offered<div class="ripple-container"></div></a></li>
+            <li class=""><a href="#reviews" data-toggle="tab" aria-expanded="false">Reviews <span class="badge">@Model.customerreview.Count</span><div class="ripple-container"></div></a></li>
+        </ul>
+    </div>
+</div>
+<section class="main mt-3">
+    <div class="container">
+        <div class="row">
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade active in" id="mealOffered">
+                    <div class="col-md-9 col-md-push-3 col-sm-12">
+                        <div class="filter">
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <div class="btn-group btn-group-justified btn-group-raised food-day-btn">
+                                        <a href="@Url.Action("HomeChefProfile", "Home", new { id = Model.user.Id, date= DateTime.Today })" class="btn btn-primary">Today</a>
+                                        <a href="@Url.Action("HomeChefProfile", "Home", new { id = Model.user.Id, date= DateTime.Today.AddDays(1)})" class="btn btn-primary">Tomorrow</a>
+                                        <a href="@Url.Action("HomeChefProfile", "Home", new { id = Model.user.Id, date= DateTime.Today.AddDays(2) })" class="btn btn-primary">Day After</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.filter -->
+
+                        <div class="food-list">
+                            @if (Model.menuSchedulesView != null)
+                            {
+                                foreach (var item in Model.menuSchedulesView)
+                                {
+                                    <div class="panel food-item">
+                                        <div class="media-left">
+                                            <img class="food-image img-responsive" src="@Html.DisplayFor(model=>item.menuschedul.MenuItems.RootUrl)" alt="Food">
+                                        </div>
+                                        <div class="media-body panel-body">
+                                            <h2 class="food-name">@Html.DisplayFor(model => item.menuschedul.MenuItems.Name)</h2>
+                                            <h3 class="food-items">@Html.DisplayFor(model => item.menuschedul.MenuItems.CompanyPrice)</h3>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <h4 class="food-chef">By @Html.DisplayFor(model => item.menuschedul.MenuItems.SecurityUserCooks.FullName)</h4>
+                                                    <ul class="rating">
+                                                        @for (int i = 0; i < 4; i++)
+                                                        {
+
+                                                            <li><a href=""><i class="mdi mdi-star"></i></a></li>
+
+                                                        }
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="order-btn">
+                                                        <a href="#" onclick="editProduct(@item.menuschedul.Id)" class="btn btn-raised btn-warning" type="button">I'll Eat it</a>
+                                                        <span>Delivery Date: @Html.DisplayFor(modelItem => item.menuschedul.Date)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- /.food-item -->
+
+                                }
+                            }
+                            else
+                            {
+
+                            }
+
+                        </div><!-- ./food-list -->
+                    </div>
+                    <div class="col-md-3 col-md-pull-9 col-sm-12">
+                        <div class="sidebar row">
+                            <div class="sidebar-widget col-md-12 col-sm-12 visible-md visible-lg">
+                                <h3 class="sidebar-widget-title">About</h3>
+                                <ul class="profile-menu">
+                                    <li><a class="mdi mdi-format"><h3 style="text-align:center;">Business Zone</h3> <div style="text-align:center;">@ViewBag.Address</div></a></li>
+                                    <li><a class="mdi mdi-format"><h3 style="text-align:center;">Specialized</h3> @Html.DisplayFor(model => model.user.Specialized)</a></li>
+                                </ul>
+                            </div><!-- /.sidebar-widget -->
+
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade in" id="reviews">
+                    <div class="col-md-12">
+                        <section class="news-section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h1 class="section-title">Customer Review</h1>
+                                    </div>
+                                    @foreach (var item in Model.customerreview)
+                                    {
+                                        <div class="col-md-6">
+                                            <div class="news-post media">
+                                                <div class="media-left">
+                                                    <img class="media-object" style="max-height:200px;max-width:300px;background-size: cover;background-position: center;background-color:#6eee7f; transform: scale(0.9, 0.9);-ms-transform: scale(0.9, 0.9);-webkit-transform: scale(0.9, 0.9);filter:brightness(115%)" src="@Html.DisplayFor(modelItem => item.OrderItems.MenuItems.RootUrl)" alt="Image">
+                                                </div>
+                                                <div class="media-body">
+                                                    <h5 class="date">Sat, June 3, 2017</h5>
+                                                    <h3 class="title">@Html.DisplayFor(modelItem => item.ReferenceByUser.FullName)</h3>
+                                                    <ul class="rating">
+                                                        @for (var i = 0; i < item.Point; i++)
+                                                        {
+                                                            <li><a href=""><i class="mdi mdi-star"></i></a></li>
+
+                                                        }
+
+                                                    </ul>
+                                                    <p>@Html.DisplayFor(modelItem=>item.Comment)</p>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </section><!-- /.news -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+    var TeamDetailPostBackURL = '/Food/Details';
+    function editProduct(Id) {
+        console.log(Id);
+        $.ajax({
+            type: "GET",
+            url: TeamDetailPostBackURL,
+            contentType: "application/json; charset=utf-8",
+            data: { "Id": Id },
+            datatype: "json",
+            success: function (data) {
+                $('#myModalContent').html(data);
+                $('#myModal').modal('show');
+
+            },
+            error: function () {
+                alert("Dynamic content load failed.");
+            }
+        });
+    }
+</script>
+<div class="modal fade product-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <a type="button" href="" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </a>
+            <div id='myModalContent'>
+
+            </div>
+        </div>
+    </div>
+</div>
+@if (Session["Cart"] == null)
+{
+    <section class="floating-cart">
+        <a href="JavaScript:Void(0);" class="floating-cart-btn">
+            <span class="mdi mdi-shopping cart-icon"></span>
+            <span class="badge">0</span>
+        </a>
+    </section>
+}
+else
+{
+    <!-- Cart list -->
+    <section class="floating-cart">
+        <a href="JavaScript:Void(0);" class="floating-cart-btn">
+            <span class="mdi mdi-shopping cart-icon"></span>
+            <span class="badge">@Session["count"]</span>
+        </a>
+        <div class="floating-cart-list">
+            <header class="cl-header">
+                <div class="pull-left">
+                    <i class="mdi mdi-food icon-food"></i> Total item @Session["count"]
+                </div>
+                <div class="pull-right">
+                    <a href="#" class="close"><i class="mdi mdi-close"></i></a>
+                </div>
+            </header>
+            @using (Html.BeginForm("OrderInsert", "Order", FormMethod.Post, new { id = "confirmorder", @class = "navbar-right" }))
+            {
+                @Html.AntiForgeryToken()
+                <ul class="cart-list">
+                    @foreach (var cart in (List<Cart>)Session["Cart"])
+                    {
+                        <li class="cart-item">
+                            <div class="cart-photo">
+                                <img src="@cart.MenuItem.RootUrl" style="max-height:50px;max-width:50px;" alt="@cart.MenuItem.Name">
+                            </div>
+                            <div class="cart-item-info">
+                                <strong>@cart.MenuItem.Name <br> @cart.MenuItem.CompanyPrice tk</strong>
+                            </div>
+                            <div class="cart-qnt">
+                                <input type="number" value="@cart.Quantity" name="Quantity" required min="1" max="5">
+                            </div>
+                            <input type="hidden" value="@cart.MenuItem.Id" name="MenuItemId" />
+                            <div class="cart-cancel">
+                                <a href="@Url.Action("Remove", "ShoppingCart")"><i class="mdi mdi-close"></i></a>
+                            </div>
+                        </li>
+                    }
+                </ul>
+                <footer class="cl-footer">
+                    <div class="cl-footer-top">
+                        <div class="input-group">
+                            <input type="text" class="coupon-input" placeholder="Have a special code?">
+                            <span class="input-group-btn">
+                                <a href="#" class="btn btn-sm btn-raised btn-info">Submit</a>
+                            </span>
+                        </div>
+                        <div class="total-amount">
+                            <h5 class="text-center">Total Price:@{  } tk</h5>
+                        </div>
+                    </div>
+                    <div class="cl-footer-bottom">
+                        <a href="javascript:document.getElementById('confirmorder').submit()" class="btn btn-raised btn-primary">Order</a>
+                    </div>
+                </footer>
+                                }
+        </div>
+    </section>
+    <!-- /.Cart list -->
+                                }
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+

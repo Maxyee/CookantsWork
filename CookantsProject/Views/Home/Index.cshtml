@@ -1,0 +1,86 @@
+﻿@model IEnumerable<CookantsEntity.ViewModel.SecurityUserWithPoint>
+@{
+    ViewBag.Title = "Home";
+}
+<script src="~/Areas/AdminBlock/Content/js/jquery-1.8.2.min.js"></script>
+<section class="main-banner" ng-controller="LocationSearchController">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="main-banner-text">
+                    <h1><b>Free Delivery Of Homemade Food At Your Doorstep</b></h1>
+                </div>
+                <div class="col-lg-12" style="text-align:center;">
+                    <div class="main-banner-search">
+
+                      
+                            <div class="field-holder">
+                                <select id="materialItem" class="location" style="width: 100%" onchange="LoadProduct(this)">
+                                    <option>Enter Your Area(e.g. Banani Dhaka)</option>
+                                </select>
+                            </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- video-section -->
+<section class="testimonials">
+    <div class="tesimonials-carousel owl-carousel">
+        @*@{Html.RenderAction("Slider", "PartialView");}*@   
+    </div>
+</section>
+<!-- /video-section -->
+<section class="app-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-1">
+                <img class="img-responsive app-image" src="~/Content/assets/images/phone.png" alt="App">
+            </div>
+            <div class="col-md-6">
+                <div class="app-section-text">
+                    <h1>Make Your Daily Meal Easy</h1>
+                    <h3>Just Download The App And Order Homemade Food</h3>
+                    <p>
+                        When you have our app in our pocket then you can just forget about your daily meal. You need to do some few clicks and we will deliver Homemade food to your doorstep.
+                    </p>
+                    <a href="https://play.google.com/store/apps/details?id=com.cookants.customerapplication" target="_blank" class="btn btn-raised btn-primary">Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="sms-subscribe">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-1">
+                <div class="sms-section-text">
+                    <h1>Earn From Home. It’s Easy</h1>
+                    <h3>Become a Home-Chef</h3>
+                    <p>
+                        Do you like cooking and want to impress everyone with your tasty meal?
+                        Cookants is a platform for you. You can earn working from home. Cookants
+                        will do everything for you. We have designed awesome services that will
+                        help you to grow your home business without any hassle.
+                    </p>
+                    <h3>Delivery support . Customer support . Business Support</h3>
+                    <a href="https://play.google.com/store/apps/details?id=com.app.cookantscook.v1" target="_blank" class="btn btn-raised btn-primary">Download</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <img class="img-responsive app-image" src="~/Content/assets/images/sms.png" alt="SMS">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="about-cookants">
+    @*@{Html.RenderAction("Index", "PartialView");}*@
+</section>
+<div class="become-rider">
+    <a href="@Url.Action("HomeChefRegistration", "Account")" target="_blank" class="floating-rider-btn"><img src="~/Content/assets/images/chef.png" alt="Home Chef Registration"><br>Become a Chef</a>
+</div>
+
+<script src="~/Content/assets/js/home.js"></script>
+<link href="~/Content/assets/css/homepage.css" rel="stylesheet" />
