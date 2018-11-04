@@ -1,0 +1,278 @@
+.product-modal .modal-content > .close {
+	padding: 10px 15px 0 0;
+	z-index: 10000;
+	position: absolute;
+	right: 0;
+}
+.product-des .chef-info .chef-info-text{
+float: left;
+}
+.product-des .chef-photo-wrap{
+float: right;
+text-align: center;
+}
+.product-des .chef-photo-wrap .chef-photo{
+width: 60px;
+}
+.product-info {
+	margin-bottom: 15px;
+}
+.cart-qnt input[type="number"] {
+	width: 60px;
+	height: 37px;
+	padding: 5px;
+}
+.cart-qnt .btn {
+	margin-top: 0;
+}
+.login-fb-btn {
+	background: #3B5998 !important;
+	color: #fff !important;
+}
+.mt-2 {
+	margin-top: 2rem;
+}
+.mt-3 {
+	margin-top: 3rem;
+}
+.mb-0 {
+	margin-bottom: 0;
+}
+.profile-menu {
+	background: #EEEEEE;
+	margin: 0;
+	padding: 0;
+}
+.profile-menu li {
+	list-style: none;
+}
+.profile-menu li a {
+	color: #333;
+	display: block;
+	padding: 10px 15px;
+	border-bottom: 1px solid #ddd;
+	font-weight: 400;
+}
+.profile-menu li a i {
+	font-size: 22px;
+	width: 30px;
+	display: inline-block;
+	vertical-align: sub;
+}
+.profile-menu li a:hover {
+	text-decoration: none;
+	background: #F15E36;
+	color: #fff;
+}
+.profile-menu li.active a {
+	background: #F15E36;
+	color: #FFF;
+}
+.order-list-table {
+	text-align: center;
+}
+.order-list-table thead th {
+	text-align: center !important;
+}
+.order-list-table tbody tr td {
+	font-size: 18px;
+	vertical-align: middle;
+}
+.order-list-table tbody tr td .qunt {
+	width: 60px;
+}
+.massage-bar {
+	background: #00b28c12;
+	position: relative;
+	width: 100%;
+	z-index: 10;
+}
+.massage-bar p {
+	margin-bottom: 0;
+	font-size: 18px;
+	font-weight: 400;
+}
+.chef-cover {
+	overflow: hidden;
+	width: 100%;
+	height: 400px;
+	min-height: auto;
+	position: relative;
+	padding: 150px 0 0;
+}
+.chef-cover::before {
+	content: "";
+	background: rgba(255,255,255,.2);
+	background: -webkit-linear-gradient(-90deg,rgba(255,255,255,.2),rgba(255,255,255,.8));
+	background: linear-gradient(180deg,rgba(255,255,255,.2),rgba(255,255,255,.8));
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+}
+.chef-cover > img {
+	position: absolute;
+	top: 0;
+	z-index: -1;
+	width: 100%;
+	min-height: 400px;
+	left: 0;
+}
+.chef-profile-menu {
+	margin-bottom: 15px;
+	margin-top: -20px;
+	z-index: 12;
+	position: relative;
+	text-align: center;
+}
+.chef-profile-menu .nav {
+	text-align: center;
+}
+.chef-profile-menu .nav li {
+	display: inline-block;
+	float: none;
+}
+.chef-profile-menu .nav li.active a {
+	background: rgba(255,255,255,0.4) !important;
+	border-radius: 0;
+}
+.chef-profile .chef-profile-pic img {
+	padding-right: 0;
+	border: 6px solid rgba(255,255,255,0.8);
+	box-shadow: 0px 0px 50px rgba(0,0,0,1);
+}
+.chef-profile .chef-profile-title {
+	vertical-align: bottom;
+	padding-left: 30px;
+}
+.chef-profile .chef-profile-title h2 {
+	font-weight: 500;
+}
+.chef-profile-pic img{
+	width: 180px;
+	height: 180px;
+}
+
+.review-form input, .review-form textarea{
+	background-color: #f9f9f9 !important;
+	padding: 10px;
+}
+.customer-reviewed-item {
+	margin-bottom: 20px;
+}
+.customer-reviewed-item .media-title {
+	margin-top: 0;
+}
+.customer-reviewed-item .media-body p {
+	font-size: 18px;
+}
+.customer-reviewed-item .media-left img {
+	width: 200px;
+}
+.floating-rider-btn {
+	background: #26b99a;
+	display: inline-block;
+	position: relative;
+	box-shadow: 0 2px 4px #363636;
+	padding: 5px 10px;
+	padding: .5rem 1rem;
+	color: #fff;
+	width: 85px;
+	text-align: center;
+	position: fixed;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 5555;
+}
+.floating-rider-btn i {
+	font-size: 24px;
+}
+.floating-rider-btn:hover {
+	color: #fff;
+	text-decoration: none;
+}
+.big-btn {
+	max-width: 500px;
+	font-size: 40px !important;
+	width: 100%
+}
+.big-btnlarge{
+    max-width: 700px;
+    font-size: 38px !important;
+    width: 100%;
+}
+.radio-inline:first-child{
+	margin-top: 0;
+}
+.chef-carousel .item a:hover {
+	text-decoration: none;
+}
+.chef-carousel .chef-photo {
+	width: 198px;
+	height: 198px;
+}
+.filter {
+	margin: 0 0 20px 0;
+}
+.gap-30 {
+	margin-top: 30px;
+}
+.sort-by {
+	margin-top: 20px;
+}
+#slideshow{width:100% !importent;}
+#slideshow > div img {width: 100%}
+@media (max-width: 850px) {
+	.chef-carousel .owl-nav {
+		display: none;
+	}
+	.food-banner, .main-banner {
+		height: auto; 
+	}
+	.food-list .food-item .food-image {
+		max-width: 220px;
+	}
+}
+@media (max-width: 767px) {
+	.chef-cover > img {
+		width: auto;
+		left: 50%;
+		top: 50%;
+		transform: translateX(-50%) translateY(-50%);
+	}
+	.navbar-collapse {text-align: center;}
+	.big-btnlarge {font-size: 100% !important;}
+	.about-cookants, .sms-subscribe, .footer-top {text-align: center;}
+	.about-cookants img.img-responsive, .sms-subscribe img.img-responsive, .app-section img.img-responsive {margin: 0 auto;}
+	.area-section .area-list {
+	padding: 0;
+	column-count: 3;
+	text-align: center;
+	display: table;
+	margin: 20px auto;
+}
+}
+@media (max-width: 570px) {
+	.chef-profile {
+		text-align: center;
+	}
+	.chef-profile .chef-profile-pic {
+		display: block;
+	}
+	.chef-profile .chef-profile-title{
+		padding-left: 0;
+	}
+	.food-item .media-left {
+		display: block;
+		padding: 0
+	}
+	.food-item .media-left img {
+		width: 100%;
+		max-width: 100% !important;
+	}
+	.food-item .media-body {
+		display: block;
+		width: 100%;
+	}
+}

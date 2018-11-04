@@ -1,0 +1,167 @@
+/*
+Template Name: Metro Lab Dashboard build with Bootstrap v2.3.1
+Template Version: 1.1
+Author: Mosaddek
+Website: http://thevectorlab.net/
+*/
+
+/* body styles */
+
+
+/*form element */
+@keyframes slidy {
+0% { left: 0%; }
+20% { left: 0%; }
+25% { left: -100%; }
+45% { left: -100%; }
+50% { left: -200%; }
+70% { left: -200%; }
+75% { left: -300%; }
+95% { left: -300%; }
+100% { left: -400%; }
+}
+
+body { margin: 0; } 
+div#slider { overflow: hidden; }
+div#slider figure img { width: 20%; float: left; }
+div#slider figure { 
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 30s slidy infinite; 
+}
+
+
+.widget {
+    background:#fff;
+    clear: both;
+    margin-bottom: 20px;
+    margin-top: 0;
+    border: 1px solid #404040;
+}
+
+.widget-title {
+    background: #404040;
+    height: 36px;
+}
+
+.widget.green {
+    border: 1px solid #f15e36;
+}
+.widget.green .widget-title {
+    background: #f15e36;
+}
+
+.widget.blue {
+    border: 1px solid #4A8BC2;
+}
+.widget.blue .widget-title {
+    background: #4A8BC2;
+}
+
+.widget.purple {
+    border: 1px solid #9D4A9C;
+}
+.widget.purple .widget-title {
+    background: #9D4A9C;
+}
+
+.widget.yellow {
+    border: 1px solid #FFB400;
+}
+.widget.yellow .widget-title {
+    background: #FFB400;
+}
+
+.widget.orange {
+    border: 1px solid #F37B53;
+}
+.widget.orange .widget-title {
+    background: #F37B53;
+}
+
+.widget.red {
+    border: 1px solid #DE577B;
+}
+.widget.red .widget-title {
+    background: #DE577B;
+}
+
+/*gray full*/
+
+.widget.gray-full {
+    border: 1px solid #575757;
+}
+.widget.gray-full .widget-title, .widget.gray-full .widget-body {
+    background: #575757;
+    color: #fff;
+}
+
+/*purple full*/
+
+.widget.purple-full {
+    border: 1px solid #9D4A9C;
+}
+.widget.purple-full .widget-title, .widget.purple-full .widget-body {
+    background: #9D4A9C;
+    color: #fff;
+}
+
+/*yellow full*/
+
+.widget.yellow-full {
+    border: 1px solid #FFB400;
+}
+.widget.yellow-full .widget-title, .widget.yellow-full .widget-body {
+    background: #FFB400;
+    color: #fff;
+}
+
+/*blue full*/
+
+.widget.blue-full {
+    border: 1px solid #4A8BC2;
+}
+.widget.blue-full .widget-title, .widget.blue-full .widget-body {
+    background: #4A8BC2;
+    color: #fff;
+}
+
+/*red full*/
+.widget.red-full {
+    border: 1px solid #DE577B;
+}
+.widget.red-full .widget-title, .widget.red-full .widget-body {
+    background: #DE577B;
+    color: #fff;
+}
+
+/*green full*/
+.widget.green-full {
+    border: 1px solid #74B749;
+}
+.widget.green-full .widget-title, .widget.green-full .widget-body {
+    background: #74B749;
+    color: #fff;
+}
+
+
+.widget-title > h4 {
+    float: left;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 10px 11px 10px 15px;
+    line-height: 12px;
+    margin: 0;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-weight: 300;
+}
+
+
+.widget-body {
+    padding: 15px 15px;
+}
+
