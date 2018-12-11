@@ -1,0 +1,24 @@
+Delivery Api
+---------------------
+1. http://cookantsapplicationdev-env-1.us-east-1.elasticbeanstalk.com/api/Delivery/GetPickUpListByDeliveryMan/{id}/{date}/{pageno}
+2. http://cookantsapplicationdev-env-1.us-east-1.elasticbeanstalk.com/api/Delivery/GetPickUpListByDeliveryMan/{id}/{pageno}
+3. http://cookantsapplicationdev-env-1.us-east-1.elasticbeanstalk.com/api/Delivery/GetDeliveryListByDeliveryMan/{id}/{date}/{pageno}
+4. http://cookantsapplicationdev-env-1.us-east-1.elasticbeanstalk.com/api/Delivery/GetDeliveryListByDeliveryMan/{id}/{pageno}
+5. http://cookantsapplicationdev-env-1.us-east-1.elasticbeanstalk.com/api/Delivery/deliveryManProfile params--> id
+6. http://cookantsapplicationdev-env-1.us-east-1.elasticbeanstalk.com/api/Delivery/confirmDelivery params--> id
+7. http://cookantsapplicationdev-env-1.us-east-1.elasticbeanstalk.com/api/Delivery/confirmPickup params--> id
+
+MenuSchedule Api
+-----------------------
+1. http://cookantsapplicationdev-env-1.us-east-1.elasticbeanstalk.com/api/v1/MenuSchedules/SchedleMenuPageno?param-->pageno
+2. http://cookantsapplicationdev-env-1.us-east-1.elasticbeanstalk.com/api/v1/MenuSchedules/SchedleMenuPagenoDate? param-->pageno,date 
+3. http://cookantsapplicationdev-env-1.us-east-1.elasticbeanstalk.com/api/v1/MenuSchedules/SchedleMenuPagenoMealid? param-> pageno,mealid
+4. http://cookantsapplicationdev-env-1.us-east-1.elasticbeanstalk.com/api/v1/MenuSchedules/SchedleMenuPagenoDateMealid? param->pageno,date,mealid
+5. http://cookantsapplicationdev-env-1.us-east-1.elasticbeanstalk.com/api/v1/MenuSchedules/ScheduleMenuWithPagenoAndDateAndBusinessZoneId? param->pageno,date,businesszoneid
+6. http://cookantsapplicationdev-env-1.us-east-1.elasticbeanstalk.com/api/v1/MenuSchedules/ScheduleMenuWithPagenoAndDateAndBusinessZoneIdAndMealId? param-> pageno,date,businesszoneid,mealid
+
+OrderItem Api
+------------------------
+1. http://cookantsapplicationdev-env-1.us-east-1.elasticbeanstalk.com/api/v1/OrderItems/GetAllOrderItemByCustomerIdWithPagenoAndDescendingOrder/{customerId}/{pageno}
+2. http://cookantsapplicationdev-env-1.us-east-1.elasticbeanstalk.com/api/v1/OrderItems/GetAllChefByCustomerIdWithPagenoAndDescendingOrder/{customerId}/{pageno}
+
